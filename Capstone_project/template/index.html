@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Spoken Language Identification (SLID)</title>
+    <meta name="author" content="Codeconvey" />
+    <link rel='stylesheet' href='https://icono-49d6.kxcdn.com/icono.min.css'>
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="static/stylesheets/style.css">
+    
+    <!--Only for demo purpose - no need to add.-->
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/demo.css" />
+	
+</head>
+<body>
+		
+<div class="ScriptTop">
+    <div class="rt-container">
+        <div class="col-rt-4" id="float-right">
+            <!-- AD -->
+        </div>
+    </div>
+</div>
+
+<header class="ScriptHeader"s>
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>Spoken Language Identification (SLID)</h1>
+            <form  method="POST" action="/" enctype="multipart/form-data">
+              <center> 
+                <input type="file" name = 'file' id="input">
+                <input type="submit"  value = 'Upload File'>
+            </center>
+            </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+         
+           <!-- partial:index.partial.html -->
+                  <center>
+<audio id = 'sound'controls>
+</audio> 
+
+{% with language = get_flashed_messages() %}
+<p style = 'color:red;'> {{language}}</p>
+{% endwith %}
+                      </center>          
+    		</div>
+		</div>
+    </div>
+</section>
+    
+<script type="text/javascript">
+  input.onchange = function(){
+   var sound = document.getElementById('sound');
+    var reader = new FileReader();
+    reader.onload = function(e) {
+    sound.src = this.result;
+    sound.controls = true;
+    sound.play();
+    };
+  reader.readAsDataURL(this.files[0]);
+}
+</script>
+
+
+
+
+<!-- Analytics -->
+
+	</body>
+</html>
+
